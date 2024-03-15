@@ -1,0 +1,29 @@
+﻿@model List<Zapatilla>
+
+<h1>Nuevas imagenes Zapatillas</h1>
+
+<button class="btn btn-dark" id="botoncrear">Nueva caja imagen</button>
+
+<form method="post" id="formimagen">
+    <label>Seleccione una Zapatilla: </label><br />
+    <select id="opciones" name="opciones">
+        @foreach(Zapatilla zapa in Model)
+        {
+            <option value="@zapa.IdProducto">@zapa.Nombre</option>
+        }
+    </select>
+    <label>Imagen:</label>
+    <input type="text" name="imagen" class="form-control" />
+    <button class="btn btn-info">Subir</button>
+</form>
+
+@section Scripts{
+    <script>
+        $(function() {
+            $("#botoncrear").click(function(){
+                var nuevoInput = $("<input>").attr("type", "text").addClass("form-control").attr("name", "imagen");
+                $("#formimagen").append(nuevoInput);
+            });
+        });
+    </script>
+}

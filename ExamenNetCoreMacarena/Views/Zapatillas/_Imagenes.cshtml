@@ -1,0 +1,48 @@
+﻿@model ImagenesZapatilla
+
+@{
+    Zapatilla zapa = ViewData["ZAPATILLA"] as Zapatilla;
+}
+
+<h3 class="mt-3">
+    Imagen @ViewData["POSICION"] de @ViewData["ULTIMO"]
+</h3>
+
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item">
+        <button onclick="loadImagenPaginacion(1)" class="btn">
+            Primero
+        </button>
+    </li>
+    <li class="list-group-item">
+        <button onclick="loadImagenPaginacion(@ViewData["ANTERIOR"])" class="btn">
+            Anterior
+        </button>
+    </li>
+    <li class="list-group-item">
+        <button onclick="loadImagenPaginacion(@ViewData["SIGUIENTE"])" class="btn">
+            Siguiente
+        </button>
+    </li>
+    <li class="list-group-item">
+        <button onclick="loadImagenPaginacion(@ViewData["ULTIMO"])" class="btn">
+            Ultimo
+        </button>
+    </li>
+</ul>
+
+<table class="table table-borderless table-success">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <img src="@Model.Imagen" alt="prueba" style="width:300px; height:300px"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

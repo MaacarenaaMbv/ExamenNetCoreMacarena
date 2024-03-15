@@ -1,0 +1,23 @@
+﻿@model List<Zapatilla>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Zapatillas</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Zapatilla zapa in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Zapatillas"
+                       asp-action="DetailsPartial"
+                       asp-route-idproducto="@zapa.IdProducto">
+                        @zapa.Nombre
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

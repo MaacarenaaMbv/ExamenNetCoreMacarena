@@ -1,0 +1,42 @@
+﻿@{
+    Zapatilla zapa = ViewData["ZAPATILLA"] as Zapatilla;
+}
+
+<a asp-controller="Zapatillas"
+   asp-action="Index" class="btn btn-info">
+    Volver
+</a>
+
+
+<h1> Detalles Zapatilla @zapa.Nombre</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@zapa.Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@zapa.Descripcion</td>
+        </tr>
+        <tr>
+            <td>Precio: @zapa.Precio</td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="contenidoimagenes"></div>
+
+@section Scripts {
+    <script>
+        function loadImagenPaginacion(posicion) {
+            console.log("Cargando imágenes para la posición: " + posicion + " y el producto con ID: " + @zapa.IdProducto);
+
+            $(function() {
+                $("#contenidoimagenes").load("/Zapatillas/_Imagenes?posicion=" + posicion + "&idproducto=" + @zapa.IdProducto);
+            });
+        }
+        loadImagenPaginacion(1);
+    </script>
+}
